@@ -7,6 +7,9 @@ other = "Copyright"
 [all_rights]
 other = "All Rights Reserved"
 
+[powered_by]
+other = "Powered by [Hugo](https://gohugo.io/), with theme [Clarity](https://github.com/chipzoller/hugo-clarity)"
+
 [share_on]
 other = "Share on"
 

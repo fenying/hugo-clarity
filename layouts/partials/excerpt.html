@@ -2,7 +2,11 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        {{- if .Param "redirect" -}}
+        <a href="{{ .Params.redirect }}" title="点击前往 Github">{{.Title}}</a>
+        {{- else -}}
         <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title | markdownify  }}</a>
+        {{- end -}}
       </h3>
       {{ partial "post-meta" . }}
     </div>
@@ -15,16 +19,11 @@
       <div class="excerpt_footer">
         {{- end }}
         <div class="pale">
-          {{- $summary := truncate 320 .Summary }}
-          {{- if .Params.summary }}
-            {{- $summary = .Params.summary }}
-          {{- else if .Params.abstract }}
-            {{ $summary = .Params.abstract }}
-          {{- end }}
-          {{ if not ( strings.Contains $summary "<p>" ) }}
-            <p>{{ $summary | markdownify }}</p>
+
+          {{ if isset .Params "description" }}
+            {{ .Description }}
           {{ else }}
-            {{ $summary | markdownify }}
+            {{ .Summary }}
           {{ end }}
           <br>
           {{- $r := T "read_more" }}

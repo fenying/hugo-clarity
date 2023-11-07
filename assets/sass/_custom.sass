@@ -2,3 +2,33 @@
 // due to the cascading nature of css, if you try to override theme css variables in this file, those changes will not apply. Instead, override css variables in the `override.sass` file
 // we recommend not editing this file directly. Instead, create an `assets/sass/_custom.sass` file at the root level of your site.
 // if you edit this file directly, you will have to resolve git conflicts when and if you decide to pull changes we make on the theme
+
+span.label
+
+    text-decoration: none;
+    padding: 0.1rem 1rem
+    border-radius: 1.5rem
+    margin-left: 6px;
+    font-weight: bold;
+    font-size: 1rem
+    background-color: #f9f2f4;
+    user-select: none
+    display: inline-flex
+    text-transform: uppercase
+    align-items: center
+    color: $theme
+
+span.label.forwarded
+    background-color: #aaa;
+    color: #fff;
+
+span.label.outdated
+    background-color: #a00;
+    color: #fff;
+
+a.author-contact:not(:first-child)
+    margin-left: 0.5rem;
+
+div.author_contacts
+    margin: 0;
+    padding: 0;

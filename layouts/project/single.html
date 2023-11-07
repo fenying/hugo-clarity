@@ -21,37 +21,14 @@
     {{- end -}}
     {{ partial "cc-license.html" . }}
 
-    {{ if $p.toc }}
-      <div class="post_toc">
-        <h2>{{ T "overview" }}</h2>
-        {{ .TableOfContents }}
-      </div>
-    {{ end }}
-    <div class="post_body">
-      {{- .Content }}
-    </div>
+	{{- if .Param "redirect" -}}
 
-    {{- $showRelatedInArticle := true }}
-    {{- if eq $s.showRelatedInArticle false }}
-      {{- $showRelatedInArticle = false }}
-    {{- else if eq $p.showRelatedInArticle false }}
-      {{- $showRelatedInArticle = false }}
-    {{- end }}
-    {{- if ne $showRelatedInArticle false }}
-      {{- partial "related" . }}
-    {{- end }}
+	<p>正在跳转到对应链接：{{ .Params.redirect }}</p>
+	<script>setTimeout(function() {
+		window.location.href = "{{ .Params.redirect }}";
+	}, 1000)</script>
 
-    {{- $showComments := true }}
-    {{- if eq $s.comments false }}
-      {{- $showComments = false }}
-    {{- else if eq $p.comments false }}
-      {{- $showComments = false }}
-    {{- end }}
-    {{- if ne $showComments false }}
-      {{- partial "comments" . }}
-    {{- end }}
-    {{- partial "i18nlist" . }}
-
+	{{- end -}}
   </article>
   {{- if ( ne $p.sidebar false ) }}
     {{- partial "sidebar" . }}

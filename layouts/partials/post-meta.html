@@ -30,6 +30,15 @@
     </span>
     {{- $scratch.Set "writeSeparator" true }}
   {{- end }}
+  {{- if .Param "forwarded" -}}
+    <span class="label forwarded" title="非作者原创文章">转载</span>
+  {{- end -}}
+  {{- if .Param "outdated" -}}
+    <span class="label outdated" title="文章内容已经过时，不具备参考性">OUTDATED</span>
+  {{- end -}}
+  {{- if .Param "migrated" -}}
+    <span class="label migrated" title="该文章迁移自作者旧博客，可能存在排版错误">MIGRATED</span>
+  {{- end -}}
   {{- if $showShare }}
     <span class="page_only">{{ if ($scratch.Get "writeSeparator") }}&nbsp;·{{ end }}{{ partial "share" . }}</span>
     {{- $scratch.Set "writeSeparator" true }}

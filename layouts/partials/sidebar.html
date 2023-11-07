@@ -27,6 +27,14 @@
       <div class="author_bio">
         {{ markdownify $introDescription }}
       </div>
+      <div class="author_contacts">
+        {{- if $s.social.telegram -}}
+        <a title="Telegram" href="https://t.me/{{ $s.social.telegram }}"><img style="height: 24px; width: 24px;" src="{{ absURL (printf "/img/telegram.svg" ) }}"></a>
+        {{- end }}
+        {{- if $s.social.github -}}
+        <a title="Github" class="author-contact" href="https://github.com/{{ $s.social.github }}"><img style="height: 24px; width: 24px;" src="{{ absURL (printf "/img/github.svg" ) }}"></a>
+        {{- end }}
+      </div>
       {{- if ( ne $s.introURL false ) }}
       {{- $r := T "read_more" }}
       <a href='{{ absLangURL (default "about/" $s.introURL) }}' class="button mt-1" role="button" title='{{ $r }}'>{{ $r }}</a>
