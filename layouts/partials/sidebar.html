@@ -29,10 +29,10 @@
       </div>
       <div class="author_contacts">
         {{- if $s.social.telegram -}}
-        <a title="Telegram" href="https://t.me/{{ $s.social.telegram }}"><img style="height: 24px; width: 24px;" src="{{ absURL (printf "/img/telegram.svg" ) }}"></a>
+        <a title="Telegram" href="https://t.me/{{ $s.social.telegram }}"><img style="filter: invert(44%) sepia(29%) saturate(7497%) hue-rotate(168deg) brightness(105%) contrast(101%); height: 24px; width: 24px;" src="{{ absURL (printf "/img/telegram.svg" ) }}"></a>
         {{- end }}
         {{- if $s.social.github -}}
-        <a title="Github" class="author-contact" href="https://github.com/{{ $s.social.github }}"><img style="height: 24px; width: 24px;" src="{{ absURL (printf "/img/github.svg" ) }}"></a>
+        <a title="Github" class="author-contact" href="https://github.com/{{ $s.social.github }}"><img style="filter: invert(72%) sepia(0%) saturate(62%) hue-rotate(175deg) brightness(96%) contrast(89%); height: 24px; width: 24px;" src="{{ absURL (printf "/img/github.svg" ) }}"></a>
         {{- end }}
       </div>
       {{- if ( ne $s.introURL false ) }}
