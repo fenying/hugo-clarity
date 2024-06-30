@@ -3,7 +3,7 @@
     <div class="excerpt_header">
       <h3 class="post_link">
         {{- if .Param "redirect" -}}
-        <a href="{{ .Params.redirect }}" title="点击前往 Github">{{.Title}}</a>
+        <a href="{{ .Params.redirect }}" title="Goto the project page">{{.Title}}</a>
         {{- else -}}
         <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title | markdownify  }}</a>
         {{- end -}}
@@ -23,7 +23,11 @@
           {{ if isset .Params "description" }}
             {{ .Description }}
           {{ else }}
-            {{ .Summary }}
+            {{- if .Param "redirect" -}}
+              {{ .Content }}
+            {{- else -}}
+              {{ .Summary }}
+            {{- end -}}
           {{ end }}
           <br>
           {{- $r := T "read_more" }}

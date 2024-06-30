@@ -12,7 +12,15 @@
 <div class="{{ if ne $p.singleColumn true }}grid-inverse {{ end }}wrap content">
   <article class="post_content">
     {{- $t := .Title }}
-    <h1 class="post_title">{{ $t | markdownify }}</h1>
+    <h1 class="post_title">{{- if .Param "redirect" -}}<a
+      title="View On Github"
+      href="{{ .Params.redirect }}"
+      target="_blank"
+      rel="noopener"
+    ><img
+      style="filter: invert(72%) sepia(0%) saturate(62%) hue-rotate(175deg) brightness(96%) contrast(89%); height: 1em; width: 1em;"
+      src="/img/github.svg"
+    > {{- end -}}{{ $t | markdownify }}{{- if .Param "redirect" -}}</a>{{- end -}}</h1>
     {{- partial "post-meta" . }}
     {{- with .Params.featureImage -}}
       <div class="post_featured">
@@ -21,14 +29,7 @@
     {{- end -}}
     {{ partial "cc-license.html" . }}
 
-	{{- if .Param "redirect" -}}
-
-	<p>正在跳转到对应链接：{{ .Params.redirect }}</p>
-	<script>setTimeout(function() {
-		window.location.href = "{{ .Params.redirect }}";
-	}, 1000)</script>
-
-	{{- end -}}
+    {{ .Content }}
   </article>
   {{- if ( ne $p.sidebar false ) }}
     {{- partial "sidebar" . }}
