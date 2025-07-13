@@ -23,10 +23,10 @@
           {{ if isset .Params "description" }}
             {{ .Description }}
           {{ else }}
-            {{- if .Param "redirect" -}}
-              {{ .Content }}
-            {{- else -}}
+            {{- if .Summary -}}
               {{ .Summary }}
+            {{- else -}}
+              {{ .Content }}
             {{- end -}}
           {{ end }}
           <br>
